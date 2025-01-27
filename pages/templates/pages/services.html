@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Servicios | GymX {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Fondo borroso -->
+<div class="background"></div>
+
+<!-- Servicios -->
+<div class="services-container fade-in-up">
+    <h1>Nuestros Servicios</h1>
+    <p>En GymX, ofrecemos una variedad de servicios para satisfacer todas tus necesidades de fitness y bienestar.</p>
+    <div class="services-list">
+        <div class="service-item">
+            <img src="{% static 'img/service_1.jpg' %}" alt="Entrenamiento Personal">
+            <h3>Entrenamiento Personalizado</h3>
+            <p>Entrena con planes adaptados a tus metas, con el apoyo de nuestros entrenadores certificados.</p>
+        </div>
+        <div class="service-item">
+            <img src="{% static 'img/service_2.jpg' %}" alt="Clases Grupales">
+            <h3>Clases Grupales</h3>
+            <p>Participa en clases como Yoga, Spinning, y más. ¡Conoce a otros y mantén la motivación!</p>
+        </div>
+        <div class="service-item">
+            <img src="{% static 'img/service_3.jpg' %}" alt="Nutrición">
+            <h3>Asesoramiento Nutricional</h3>
+            <p>Recibe planes nutricionales personalizados para complementar tus entrenamientos y objetivos.</p>
+        </div>
+    </div>
+</div>
+<!-- Precios -->
+<div class="pricing-container fade-in-up">
+    <h2>Precios</h2>
+    <p>Elige el plan que más se adapte a tus necesidades y empieza hoy mismo.</p>
+    <div class="pricing-plans">
+
+        {% for membresia in membresias%}
+        <div class="pricing-plan">
+            <h3>{{membresia.name}}</h3>
+            <p>${{membresia.price}}/mes</p>
+            <ul>
+                <li>{{membresia.description}}</li>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

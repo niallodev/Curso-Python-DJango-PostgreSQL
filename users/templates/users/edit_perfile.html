@@ -1,0 +1,31 @@
+<!-- templates/users/edit_user.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Editar | GymX {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'users/css/autenticacion.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Fondo borroso -->
+<div class="background"></div>
+
+<!-- Contenedor del Registro -->
+<div class="form-container">
+    <h2>Información Personal</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div class="botones">
+            <button type="submit">Guardar</button>
+            <button type="button" class="cancelar"><a href="{% url 'pages:index' %}">Cancelar</a></button>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

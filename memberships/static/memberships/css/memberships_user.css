@@ -1,0 +1,99 @@
+
+main {
+    background: linear-gradient(to left, #b4ae9ea4, #42403e13, #b4ae9ea4);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+.pricing-container {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.pricing-container h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.pricing-container p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.pricing-plans {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.pricing-plan {
+    /* background-color: #fff; */
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5));
+    border-radius: 10px;
+    padding: 30px;
+    width: 20%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+    background-size: 300% 300%;
+    background-position: center bottom;
+}
+
+.pricing-plan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* background: linear-gradient(180deg, rgba(0, 0, 0, 0.541), rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5)); */
+    background-position: top right; /* Move the gradient on hover to create the light reflection effect */
+}
+
+.pricing-plan h3 {
+    font-size: 28px;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+}
+
+.pricing-plan p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.pricing-plan ul {
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+    color: #777;
+}
+
+.pricing-plan ul li {
+    margin-bottom: 10px;
+}
+
+/* Añadiendo estilo para la imagen */
+.img_membresia {
+    width: 80px; /* Aumentamos el tamaño de la imagen */
+    height: 80px; /* Aseguramos que la imagen tenga la misma altura */
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombras para dar profundidad */
+    background-color: transparent !important;
+    /* background: linear-gradient(45deg, #ff6b6b, #ffb6b6); Efecto de degradado sutil en el fondo */
+    display: block; /* Asegura que la imagen se alinee correctamente */
+    margin: 0 auto 20px; /* Centra la imagen y le da espacio en la parte inferior */
+    filter: grayscale(100%)
+    drop-shadow(0 0 10px gray);
+    transition: all 0.3s ease; /* Agrega transición para efectos de hover */
+}
+
+/* Efecto al pasar el mouse (hover) */
+.img_membresia:hover {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(0, 0, 0, 0.1); /* Aumenta la sombra para un efecto más prominente */
+}

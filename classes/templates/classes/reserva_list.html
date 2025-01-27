@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Mis Reserrvas | GymX {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'classes/css/clase.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Mis Reservas</h2>
+<div class="table-container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Clase</th>
+                <th>Fecha de Reserva</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reserva in reservas %}
+            <tr>
+                <td>{{ reserva.usuario }}</td>
+                <td>{{ reserva.clase }}</td>
+                <td>{{ reserva.fecha_reserva }}</td>
+                <td>
+                    <div class="botones_accion">
+                        {% if reserva.is_active %}
+                        <a href="{% url 'classes:reserve_delete' reserva.id %}" class="btn btn-warning btn-sm">
+                            <img src="{% static 'img/eliminar.png' %}" alt="Eliminar"></a>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

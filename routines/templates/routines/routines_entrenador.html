@@ -1,0 +1,49 @@
+<!-- templates/payments/clase_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Rutinas | GymX {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'routines/css/routines.css' %}">
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'routines:create_routines_entrenador' clase_id %}" class="boton_registro">Agregar Rutina</a>
+<a href="{% url 'classes:classes_entrenador' user_id %}" class="boton_regresar">Regresar</a>
+<h2> Rutinas de la Clase</h2>
+<div class="table-container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Clase</th>
+                <th>Rutina</th>
+                <th>Descripcion</th>
+                <th>Frecuencia</th>
+                <th>Duracion (m)</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Fin</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for rutina in rutinas %}
+            <tr>
+                <td>{{ rutina.clase }}</td>
+                <td>{{ rutina.nombre }}</td>
+                <td>{{ rutina.descripcion }}</td>
+                <td>{{ rutina.frecuencia }}</td>
+                <td>{{ rutina.duracion_minutos }}</td>
+                <td>{{ rutina.fecha_inicio }}</td>
+                <td>
+                    {% if rutina.fecha_fin %}
+                    {{ rutina.fecha_fin }}
+                    {% else %}
+                    Sin definir
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,326 @@
+
+
+
+/* Fondo */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.9)),
+        url('https://img.pikbest.com/photo/20240820/muscular-shirtless-male-doing-exercise-with-dumbbells-in-a-gym-club_10744071.jpg!w700wp') no-repeat center top;
+    background-size: cover;
+    z-index: -1;
+}
+
+/* Hero Section */
+.hero-container {
+    text-align: center;
+    padding: 100px 20px;
+    color: #fff;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.cta-button {
+    padding: 14px 40px;
+    background-color: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #ff4757;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Sección de Beneficios */
+.benefits-container {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #f4f4f4;
+}
+
+.benefits h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.benefits {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+}
+
+.benefit {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.benefit img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.benefit:hover {
+    transform: translateY(-10px);
+}
+
+.benefit h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.benefit p {
+    font-size: 16px;
+}
+
+/* Testimonios */
+.testimonials {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #fff;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.testimonial {
+    display: inline-block;
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    font-size: contain;
+}
+
+.testimonial p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.testimonial h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Slider */
+.slider-container {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #f4f4f4;
+}
+
+.slider-container h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.slider{
+    display:inline-block;
+}
+
+.slider img {
+    width: 300px;
+    max-width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 20px 0;
+    transition: transform 0.3s ease;
+}
+
+.slider img:hover {
+    transform: scale(1.02);
+}
+
+/* Precios */
+.pricing-container {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #fff;
+}
+
+.pricing-container h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.pricing-plans {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.pricing-plan {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 30px;
+    width: 280px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-plan h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.pricing-plan p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.pricing-plan ul {
+    list-style-type: none;
+    margin-bottom: 30px;
+}
+
+.pricing-plan ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Formulario de Contacto */
+.contact-form {
+    padding: 80px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.contact-form h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #ff6b6b;
+    outline: none;
+}
+
+.contact-form button {
+    padding: 14px 40px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #ff4757;
+}
+
+/* Sección final (CTA) */
+.cta-final {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.cta-final h2 {
+    font-size: 36px;
+    margin: 20px;
+}
+
+.cta-final .cta-button {
+    padding: 14px 40px;
+    background-color: white;
+    color: #ff6b6b;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cta-final .cta-button:hover {
+    background-color: #ff4757;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .benefits, .testimonials, .pricing-plans {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .slider-container {
+        padding: 40px 20px;
+    }
+}

@@ -1,0 +1,51 @@
+<!-- templates/payments/clase_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Pagos | GymX {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'payments/css/payments.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Lista de Pagos</h2>
+
+<div class="table-container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Plan</th>
+                <th>Fecha de Pago</th>
+                <th>Monto</th>
+                <th>Descripción</th>
+                <th>Metodo de Pago</th>
+                <th>Estado</th>
+                <th>Acción</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for pago in pagos %}
+            <tr>
+                <td>{{ pago.usuario }}</td>
+                <td>{{ pago.plan }}</td>
+                <td>{{ pago.fecha_pago }}</td>
+                <td>{{ pago.monto }}</td>
+                <td>{{ pago.descripcion }}</td>
+                <td>{{ pago.get_metodo_pago_display }}</td>
+                <td>{{ pago.get_estado_display }}</td>
+                <td>
+                    {% if pago.estado != 2 %}
+                    <div class="botones_accion">
+                        <a href="{% url 'payments:edit_payments' pago.id %}" class="btn btn-warning btn-sm">
+                            <img src="https://cdn-icons-png.flaticon.com/128/6324/6324826.png" alt=""></a>
+                    </div>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+<!-- templates/classes/clase_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Clases | GymX {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'classes/css/clase.css' %}">
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'classes:create_classes' %}" class="boton_registro">Agregar Nueva Clase</a>
+<h2>Lista de Clases</h2>
+
+<div class="table-container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Entrenador</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Cupo Máximo</th>
+                <th>Estado</th>
+                <th>Acción</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for clase in clases %}
+            <tr>
+                <td>{{ clase.nombre }}</td>
+                <td>{{ clase.descripcion }}</td>
+                <td>{{ clase.entrenador }}</td>
+                <td>{{ clase.fecha }}</td>
+                <td>{{ clase.hora }}</td>
+                <td>{{ clase.cupo_maximo }}</td>
+                <td>
+                    {% if clase.is_active %}
+                    Activo
+                    {% else %}
+                    Eliminado
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="botones_accion">
+                        {% if clase.is_active %}
+                        <a href="{% url 'classes:edit_classes' clase.id %}" class="btn btn-warning btn-sm">
+                            <img src="{% static 'img/editar.png' %}" alt="Editar"></a>
+                        <a href="{% url 'classes:delete_classes' clase.id %}" class="btn btn-warning btn-sm">
+                            <img src="{% static 'img/eliminar.png' %}" alt="Eliminar"></a>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

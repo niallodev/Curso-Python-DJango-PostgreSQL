@@ -1,0 +1,55 @@
+<!-- templates/classes/memberships_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Membresias | GymX {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'memberships/css/memberships.css' %}">
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'memberships:create_memberships' %}" class="boton_registro">Agregar Nueva Membresia</a>
+<h2>Lista de Membresias</h2>
+
+<div class="table-container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Descripcion</th>
+                <th>Estado</th>
+                <th>Acción</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for membresia in membresias %}
+            <tr>
+                <td>{{ membresia.name }}</td>
+                <td>{{ membresia.price }}</td>
+                <td>{{ membresia.description }}</td>
+                <td>
+                    {% if membresia.is_active %}
+                    Activo
+                    {% else %}
+                    Eliminado
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="botones_accion">
+                        {% if membresia.is_active %}
+                        <a href="{% url 'memberships:edit_memberships' membresia.id %}" class="btn btn-warning btn-sm">
+                            <img src="https://cdn-icons-png.flaticon.com/128/6324/6324826.png" alt=""></a>
+                        <a href="{% url 'memberships:delete_memberships' membresia.id %}"
+                            class="btn btn-warning btn-sm">
+                            <img src="https://cdn-icons-png.flaticon.com/128/2775/2775833.png" alt=""></a>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

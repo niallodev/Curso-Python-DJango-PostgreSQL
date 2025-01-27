@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Crear Rutina{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'routines/css/formRutinas.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Fondo borroso -->
+<div class="background"></div>
+
+<!-- Contenedor del Registro -->
+<div class="form-container">
+    <h2>Crear Rutina</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="botones">
+            <button type="submit">Registrar</button>
+            <button type="button" class="cancelar"><a href="{% url 'routines:routines_list' %}">Cancelar</a></button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+<!-- templates/payments/clase_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Rutinas | GymX {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'routines/css/routines.css' %}">
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'routines:create_routines' %}" class="boton_registro">Agregar Nueva Rutina</a>
+<h2>Lista de Rutinas</h2>
+
+<div class="table-container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Clase</th>
+                <th>Rutina</th>
+                <th>Descripcion</th>
+                <th>Frecuencia</th>
+                <th>Duracion (m)</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Fin</th>
+                <th>Estado</th>
+                <th>Acción</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for rutina in rutinas %}
+            <tr>
+                <td>{{ rutina.clase }}</td>
+                <td>{{ rutina.nombre }}</td>
+                <td>{{ rutina.descripcion }}</td>
+                <td>{{ rutina.frecuencia }}</td>
+                <td>{{ rutina.duracion_minutos }}</td>
+                <td>{{ rutina.fecha_inicio }}</td>
+                <td>
+                    {% if rutina.fecha_fin %}
+                    {{ rutina.fecha_fin }}
+                    {% else %}
+                    Sin definir
+                    {% endif %}
+                </td>
+                <td>
+                    {% if rutina.is_active %}
+                    Activo
+                    {% else %}
+                    Eliminado
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="botones_accion">
+                        {% if rutina.is_active %}
+                        <a href="{% url 'routines:edit_routines' rutina.id %}" class="btn btn-warning btn-sm">
+                            <img src="https://cdn-icons-png.flaticon.com/128/6324/6324826.png" alt=""></a>
+                        <a href="{% url 'routines:delete_routines' rutina.id %}" class="btn btn-warning btn-sm">
+                            <img src="https://cdn-icons-png.flaticon.com/128/2775/2775833.png" alt=""></a>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

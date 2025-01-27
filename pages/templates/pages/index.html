@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Inicio | GymX {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Fondo borroso -->
+<div class="background"></div>
+
+<!-- Hero Section (Introducción) -->
+<div class="hero-container">
+    <div class="hero-text fade-in-up">
+        <h1>Bienvenido a GymX</h1>
+        <p>Transforma tu cuerpo y mente con nosotros. Conoce nuestros servicios y empieza hoy mismo.</p>
+        <div class="cta-container">
+            <a href="{% url 'users:register' %}" class="cta-button">¡Únete ahora!</a>
+        </div>
+    </div>
+</div>
+
+<!-- Beneficios -->
+<div class="benefits-container fade-in-up">
+    <h2>¿Por qué elegir GymX?</h2>
+    <div class="benefits">
+        <div class="benefit">
+            <img src="{% static 'img/imagen_1.jpg' %}" alt="Entrenadores">
+            <h3>Entrenadores Expertos</h3>
+            <p>Asesoramiento profesional para ayudarte a alcanzar tus metas más rápido.</p>
+        </div>
+        <div class="benefit">
+            <img src="{% static 'img/imagen_2.jpg' %}" alt="Instalaciones">
+            <h3>Instalaciones de Última Generación</h3>
+            <p>El mejor equipamiento para maximizar tu entrenamiento.</p>
+        </div>
+        <div class="benefit">
+            <img src="{% static 'img/imagen_3.jpg' %}" alt="Comunidad">
+            <h3>Comunidad Motivadora</h3>
+            <p>Un entorno amigable donde te sentirás apoyado en cada paso.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonios -->
+<div class="testimonials fade-in-up">
+    <h2>Lo que dicen nuestros miembros</h2>
+    <div class="testimonial">
+        <img src="{% static 'img/testimonio_1.jpg' %}" alt="Cliente 1">
+        <p>"GymX me ayudó a perder 15 kilos en 3 meses. Los entrenadores son increíblemente motivadores."</p>
+        <h3>- Juan Pérez</h3>
+    </div>
+    <div class="testimonial">
+        <img src="{% static 'img/testimonio_2.jpg' %}" alt="Cliente 2">
+        <p>"Las instalaciones son de primera, y el ambiente es genial para entrenar de manera constante."</p>
+        <h3>- María López</h3>
+    </div>
+</div>
+
+<!-- Slider de imágenes -->
+<div class="slider-container fade-in-up">
+    <h2>Nuestros Servicios en Acción</h2>
+    <div class="slider">
+        <img src="{% static 'img/gym_1.jpg' %}" alt="Entrenamiento 1">
+        <img src="{% static 'img/gym_2.jpg' %}" alt="Entrenamiento 2">
+        <img src="{% static 'img/gym_3.jpg' %}" alt="Entrenamiento 3">
+    </div>
+</div>
+
+<!-- CTA Final -->
+<div class="cta-final fade-in-up">
+    <h2>¿Estás listo para cambiar tu vida?</h2>
+    <a href="{% url 'users:register' %}" class="cta-button">¡Únete ahora a GymX!</a>
+</div>
+
+{% endblock %}

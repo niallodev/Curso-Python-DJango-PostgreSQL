@@ -1,0 +1,34 @@
+<!-- templates/classes/memberships_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Membresia | GymX {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'memberships/css/memberships_user.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Mi Membresia</h2>
+{% if membresia %}
+
+<div class="pricing-plans">
+
+    {% for item in membresia%}
+    <div class="pricing-plan">
+        <h3>{{item.name}}</h3>
+        <p>${{item.price}}/mes</p>
+        <ul>
+            <li>{{item.description}}</li>
+        </ul>
+        <img class="img_membresia" src="{% static 'memberships/img/membresia.png' %}" alt="Membresia"></a>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% else %}
+No cuenta con alguna membresia activa comuniquese con GymX
+{% endif %}
+
+
+{% endblock %}

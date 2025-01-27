@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    {% block style %} {% endblock %}
+</head>
+
+<body>
+    <nav>
+        <div class="logo">GymX</div>
+        <ul class="menu">
+            <!-- Acceso público -->
+            <li><a href="{% url 'pages:index' %}">Inicio</a></li>
+            <li><a href="{% url 'pages:about' %}">Nosotros</a></li>
+            <li><a href="{% url 'pages:services' %}">Servicios</a></li>
+            <li><a href="{% url 'pages:contact' %}">Contacto</a></li>
+            
+            {% if user.is_authenticated %}
+            <!-- Menú para usuarios logueados -->
+                {% if user.user_type == 1 %}
+                <!-- Menú del Administrador -->
+                <li>
+                    <a href="#gestion">Gestión</a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'classes:classes_list' %}">Clases</a></li>
+                        <li><a href="{% url 'routines:routines_list' %}">Rutinas</a></li>
+                        <li><a href="{% url 'users:user_list' %}">Usuarios</a></li>
+                        <li><a href="{% url 'memberships:memberships_list' %}">Membresía<s</a></li>
+                        <li><a href="{% url 'payments:payments_list' %}">Pagos</a></li>
+                    </ul>
+                </li>
+                {% elif user.user_type == 2 %}
+                <!-- Menú del Entrenador -->
+                <li>
+                    <a href="#entrenamiento">Entrenamiento</a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'classes:classes_entrenador' user.id %}">Mis Clases</a></li>
+                    </ul>
+                </li>
+                {% elif user.user_type == 3 %}
+                <!-- Menú del Miembro -->
+                <li>
+                    <a href="#mi_cuenta">Mi Cuenta</a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'classes:reserve_list' %}">Mi Rutina</a></li>
+                        <li><a href="{% url 'classes:classes_miembros' %}">Reservar Clases</a></li>
+                        <li><a href="{% url 'memberships:memberships_user' user.id  %}">Mi Membresía</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+            <!-- Opción de cerrar sesión -->
+            <!-- <li><hr></li> -->
+            <!-- <li><a href="{% url 'users:logout' %}">Cerrar sesión</a></li> -->
+           
+            <!-- Menú para usuarios no logueados -->
+            
+            <!-- <li><hr></li> -->
+            <!-- <li><a href="{% url 'users:login' %}">Iniciar sesión</a></li> -->
+                {% if show_footer %}
+                <br>
+                <!-- Menú del Perfil -->
+                <li>
+                    <a href="#mi_cuenta" class="img_perfil">
+                        <img class="perfil" 
+                        src="
+                        {% if user.profile_picture.url != '' %}
+                            {{ user.profile_picture.url }}
+                        {% else %}
+                            {% static 'img/logo.jpg' %}
+                        {% endif %}" 
+                        alt="Imgen de Perfil">
+                        
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'users:edit_perfile' user.id %}">Mi Perfil</a></li>
+                        <li><a href="{% url 'users:logout' %}">Cerrar sesión</a></li>
+                    </ul>
+                </li>
+                <br>
+                
+                {% endif %}
+
+
+            {% endif %}
+
+            {% if not user.is_authenticated and show_footer %}
+            <br>
+            <li><a href="{% url 'users:login' %}">Iniciar sesión</a></li>
+            {% endif %}
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <!-- Mensaje de éxito o error -->
+    {% if messages %}
+        <div class="alert alert-info">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+        </div>
+    {% endif %}
+
+    <main class="main">
+        
+        {% block content %} {% endblock %}
+    </main>
+
+    {% if show_footer %}
+    <!-- Footer -->
+    <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="{% static 'img/logo.jpg'%}" alt="GymX Logo">
+            <p>&copy; 2025 GymX. Todos los derechos reservados.</p>
+        </div>
+        <div class="footer-socials">
+            <h4>Síguenos</h4>
+            <div class="social-icons">
+                <a href="#" class="social-icon" target="_blank"><img src="https://img.icons8.com/ios/50/ffffff/facebook.png" alt="Facebook"></a>
+                <a href="#" class="social-icon" target="_blank"><img src="https://img.icons8.com/ios/50/ffffff/instagram-new.png" alt="Instagram"></a>
+                <a href="#" class="social-icon" target="_blank"><img src="https://img.icons8.com/ios/50/ffffff/twitter.png" alt="Twitter"></a>
+                <a href="#" class="social-icon" target="_blank"><img src="https://img.icons8.com/ios/50/ffffff/youtube-play.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Powered by <a href="#" target="_blank">Your Company</a></p>
+    </div>
+    </footer>
+
+    {% endif %}
+
+    {% block script %} {% endblock %}
+    <script src="{% static 'js/menu.js' %}"></script>
+</body>
+
+</html>

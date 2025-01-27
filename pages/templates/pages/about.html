@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Nosotros | GymX {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Historia -->
+<div class="history fade-in-up">
+    <h1>Sobre GymX</h1>
+    <p>Fundado en 2015, GymX ha sido un referente en el mundo del fitness, con una misión clara: mejorar la calidad de
+        vida de nuestros miembros mediante el entrenamiento físico y mental.</p>
+    <img src="{% static 'img/logo.jpg' %}" alt="Historia GymX">
+</div>
+
+<!-- Misión y Visión -->
+<div class="mission-vision fade-in-up">
+    <div class="section">
+        <h2>Misión</h2>
+        <p>Brindamos un ambiente de apoyo donde cada persona pueda alcanzar su máximo potencial físico y mental, a
+            través de programas personalizados y entrenadores expertos.</p>
+    </div>
+    <div class="section">
+        <h2>Visión</h2>
+        <p>Ser la cadena de gimnasios más reconocida a nivel mundial, ofreciendo un enfoque integral para la salud y el
+            bienestar.</p>
+    </div>
+</div>
+
+<!-- Equipo -->
+<div class="team fade-in-up">
+    <h2>Conoce a nuestro equipo</h2>
+    <div class="team-member">
+        <img src="{% static 'img/team-member_1.jpg' %}" alt="Entrenador 1">
+        <h3>Juan Gómez</h3>
+        <p>Entrenador Personal | Especialista en Musculación</p>
+    </div>
+    <div class="team-member">
+        <img src="{% static 'img/team-member_2.jpg' %}" alt="Entrenador 2">
+        <h3>Laura Martínez</h3>
+        <p>Nutricionista | Especialista en Dietas y Salud</p>
+    </div>
+    <div class="team-member">
+        <img src="{% static 'img/team-member_3.jpg' %}" alt="Entrenador 3">
+        <h3>Carlos Sánchez</h3>
+        <p>Instructor de Yoga | Bienestar Integral</p>
+    </div>
+</div>
+{% endblock %}

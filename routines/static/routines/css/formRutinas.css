@@ -1,0 +1,225 @@
+/* Fondo con la imagen */
+.main {
+    height: auto;
+    min-height: calc(100dvh - 47px);
+    overflow-y: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    box-sizing: border-box;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+        
+    }
+    
+    .background {
+        position: absolute;
+        top: 47px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 47px);
+        height: 100%;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.9)),
+            url('https://img.pikbest.com/photo/20240820/muscular-shirtless-male-doing-exercise-with-dumbbells-in-a-gym-club_10744071.jpg!w700wp') no-repeat center center;
+        background-size: contain;
+        z-index: -1;
+        
+    }
+    
+    /* Contenedor del formulario */
+    .form-container {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(3px);
+        width: 400px;
+        /* height: 200px; */
+        max-height: calc(100dvh - 147px);
+        height: auto;
+        overflow-y: auto;
+        padding: 30px;
+        margin: 0 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        color: white;
+        text-align: center;
+        animation: fadeIn 1.5s ease-out;
+        /* Oculta la barra de scroll */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+    }
+    
+    .form-container h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        animation: slideDown 1.2s ease-out;
+    }
+    
+    .form-container label {
+        display: block;
+        margin: 10px 0;
+    }
+    /* Input */
+    .form-control {
+        width: calc(100% - 30px);
+        padding: 12px 15px;
+        border: none;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.3);
+        color: white;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+    
+    .form-control::placeholder {
+        color: rgba(245, 245, 245, 0.7);
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+    }
+    
+    .form-control:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+    }
+    
+    
+    /* Input File */
+    .form-control-file {
+        width: calc(100% - 30px);
+        padding: 10px 15px;
+        border: none;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.3);
+        color: white;
+        font-size: 16px;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .form-control-file:hover {
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+    }
+    
+    .form-control-file:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Optional: Custom text for file input when no file is selected */
+    .botones{
+        display: flex;
+        gap: 15px;
+    }
+    .botones .cancelar{
+        padding: 0;
+        display: block;
+    }
+    .botones a {
+        text-decoration: none;
+        color: white;
+        display: block;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    
+    }
+    
+    .form-control-file::file-selector-button {
+        background: rgba(255, 255, 255, 0.3);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .form-control-file::file-selector-button:hover {
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+    }
+    
+    
+    select, select:focus{
+        color: rgba(61, 61, 61, 0.9);
+        width: 100% !important;
+    }
+    
+    
+    .form-container button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        background: #ff6b6b;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 15px;
+        transition: background 0.3s, transform 0.2s;
+    }
+    
+    .form-container button:hover {
+        background: #ff4757;
+        transform: scale(1.05);
+    }
+    
+    .form-container p {
+        margin-top: 20px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .form-container p a {
+        color: #ff6b6b;
+        cursor: pointer;
+        text-decoration: underline;
+        transition: color 0.3s;
+        text-decoration: none;
+    }
+    
+    .form-container p span:hover {
+        color: #ff4757;
+    }
+    
+    
+    
+    /* Animaciones */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+    
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+    
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @media (max-width:515px) {
+        .background {
+            background-size: cover;
+        }
+    }
+    
